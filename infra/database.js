@@ -4,7 +4,6 @@ async function query(queryObject) {
   let client;
   try {
     client = await getNewCliente();
-    await client.connect();
     const result = await client.query(queryObject);
     return result;
   } catch (error) {
