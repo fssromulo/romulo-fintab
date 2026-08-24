@@ -1,7 +1,6 @@
 import database from "/infra/database.js";
 
 async function status(request, response) {
-  let variavelEsquecida;
   const databaseName = process.env.POSTGRES_DB;
   const updatedAt = new Date().toISOString();
 
