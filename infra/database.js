@@ -27,10 +27,12 @@ async function getNewCliente() {
   return client;
 }
 
-export default {
+const database = {
   query,
   getNewCliente,
 };
+
+export default database;
 
 function getSSLValue() {
   if (process.env.POSTGRES_CA) {
