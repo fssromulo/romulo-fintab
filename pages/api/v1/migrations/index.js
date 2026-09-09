@@ -1,5 +1,5 @@
 import migrationRunner from "node-pg-migrate";
-import { join } from "node:path";
+import { resolve } from "node:path";
 import database from "infra/database";
 
 export default async function migrations(request, response) {
@@ -17,7 +17,7 @@ export default async function migrations(request, response) {
       dbClient,
       databaseUrl: process.env.DATABASE_URL,
       dryRun: true,
-      dir: join("infra", "migrations"), // usa esse método para evitar problemas com caracteres especiais no linux, windows etc.
+      dir: resolve("infra", "migrations"), // usa esse método para evitar problemas com caracteres especiais no linux, windows etc.
       direction: "up",
       verbose: true,
       migrationsTable: "pgmigrations",
